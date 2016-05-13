@@ -45,6 +45,8 @@ def platform_detect():
     # TODO: Check the Beaglebone Black /proc/cpuinfo value instead of reading
     # the platform.
     plat = platform.platform()
+    if plat.lower().find('Linux-4.3.0-armv7l-with-debian-8.4') > -1
+        return CHIP
     if plat.lower().find('armv7l-with-debian') > -1:
         return BEAGLEBONE_BLACK
     elif plat.lower().find('armv7l-with-ubuntu') > -1:
