@@ -15,6 +15,9 @@ if '--force-pi' in sys.argv:
     platform = platform_detect.RASPBERRY_PI
     pi_version = 1
     sys.argv.remove('--force-pi')
+elif '--force-chip' in sys.argv:
+    platform = platform_detect.CHIP
+    sys.argv.remove('--force-chip')
 elif '--force-pi2' in sys.argv:
     platform = platform_detect.RASPBERRY_PI
     pi_version = 2
@@ -48,6 +51,12 @@ if platform == platform_detect.RASPBERRY_PI:
                                     extra_compile_args=['-std=gnu99']))
     else:
         raise RuntimeError('Detected Pi version that has no appropriate driver available.')
+elif platform == platform_detect.CHIP
+    extensions.append(Extension("Adafruit_DHT.CHIP_Driver",
+    				["source/_CHIP_Driver.c", "source/common_dht_read.c", "source/CHIP/CHIP_dht_read.c", "source/CHIP/CHIP_mmio.c"],
+    				libraries=['rt'],
+    				extra_compile_args=['-std=gnu99']))
+
 elif platform == platform_detect.BEAGLEBONE_BLACK:
     extensions.append(Extension("Adafruit_DHT.Beaglebone_Black_Driver",
                                 ["source/_Beaglebone_Black_Driver.c", "source/common_dht_read.c", "source/Beaglebone_Black/bbb_dht_read.c", "source/Beaglebone_Black/bbb_mmio.c"],
