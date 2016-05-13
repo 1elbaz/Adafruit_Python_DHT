@@ -1,5 +1,7 @@
 /* 
- * gpioport.c
+ * Thanks to Tom Cubie, Olimex, and Tele for this port.
+ * Original file name: gpioport.c
+ * https://www.olimex.com/forum/index.php?topic=436.0
  *
  *  Created on: Mar 21, 2013
  *      Author: Tele
